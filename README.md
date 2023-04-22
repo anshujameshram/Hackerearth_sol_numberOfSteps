@@ -36,8 +36,10 @@ Sample Input
 5
 5 7 10 5 15
 2 2 1 3 5
+
 Sample Output
 8
+
 Time Limit: 1
 Memory Limit: 256
 Source Limit:
