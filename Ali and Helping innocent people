@@ -1,0 +1,67 @@
+Problem
+Arpasland has surrounded by attackers. A truck enters the city. The driver claims the load is food and medicine from Iranians. Ali is one of the soldiers in Arpasland. He doubts about the truck, maybe it's from the siege. He knows that a tag is valid if the sum of every two consecutive digits of it is even and its letter is not a vowel. Determine if the tag of the truck is valid or not.
+
+We consider the letters "A","E","I","O","U","Y" to be vowels for this problem.
+
+Input Format
+
+The first line contains a string of length 9. The format is "DDXDDD-DD", where D stands for a digit (non zero) and X is an uppercase english letter.
+
+Output Format
+
+Print "valid" (without quotes) if the tag is valid, print "invalid" otherwise (without quotes)
+
+Sample Input
+12X345-67
+Sample Output
+invalid
+
+----solution-------
+import java.util.Scanner;
+
+public class AliHackerEarth {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        //System.out.println("Enter he string");
+        String s = sc.next();
+        int flag = 0;
+        char a[] = s.toCharArray();
+
+        for (int i = 0; i < s.length() - 1; i++) {
+            // 123X45-98
+            // 246A642-82
+            if (Character.isDigit(a[i]) && Character.isDigit(a[i + 1])) {
+                if ((a[i] + a[i + 1]) % 2 == 0) {
+                    flag = 1;
+                } else {
+                    flag = 0;
+                    break;
+                }
+
+            }
+
+            if (flag == 1 && Character.isLetter(a[i])) {
+            //  System.out.println(+'A');
+                if (a[i] == 'A' || a[i] == 'E' || a[i] == 'I' || a[i] == 'O' || a[i] == 'U' || a[i] == 'Y') {
+                    flag = 0;
+                    break;
+                } else {
+                    flag = 1;
+                    
+                }
+
+            }
+
+        }
+
+        if (flag == 1) {
+            System.out.println("valid");
+        } else {
+            System.out.println("invalid");
+        }
+
+    }
+
+}
